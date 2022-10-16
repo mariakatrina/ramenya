@@ -1,0 +1,58 @@
+/* default stuff */
+*{
+    box-sizing: border-box;
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* applies to the entire html, sets a default */
+/* space to declare custom variables */
+:root{
+    --colour-one: rgb(0,0,0);
+    --colour-two: rgb(100,100,100);
+    --colour-three: rgb(180,180,180);
+    --colour-four: rgb(240,240,240);
+    --border-one: solid 2px rgb(180,180,180);
+    background-color: rgb(28, 34, 55);
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: auto;
+}
+
+#welcome {
+    width: 50%;
+    margin: auto;
+    display: block;
+    margin-top: 10rem;
+}
+
+
+#landing-wrapper {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    background-image: url("Homepage.gif");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+
+  #scene2 {
+    display: flex;
+    flex-flow: column;
+    height: 100vh;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    background-image: url("img/Scene2.PNG");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
