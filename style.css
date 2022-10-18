@@ -131,7 +131,7 @@ h1 {
     width: 50%;
     margin: auto;
     display: block;
-    margin-top: 2rem;
+    align-items: center;
 }
 
 .home {
@@ -197,9 +197,13 @@ h1 {
     background: linear-gradient(to top, #6b3838, transparent);
     z-index: -300;
   }
-/*   
-  #welcome {
-    transition-duration: 1s;
-    z-index: 1000;
-  } */
   
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  #soundcontrol {
+    margin-left: 1rem;
+  }
