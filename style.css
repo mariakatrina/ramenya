@@ -1,4 +1,5 @@
-/* default stuff */
+/* default stuff, removes margins and paddings and defaults to 0
+adds a scroll behaviour to clicked links with smooth motion */
 *{
     box-sizing: border-box;
     margin: 0;
@@ -10,12 +11,10 @@
 /* applies to the entire html, sets a default */
 /* space to declare custom variables */
 :root{
-    --colour-one: rgb(0,0,0);
-    --colour-two: rgb(100,100,100);
-    --colour-three: rgb(180,180,180);
-    --colour-four: rgb(240,240,240);
-    --border-one: solid 2px rgb(180,180,180);
-    background-color: #6b3838;
+    --colour-one: #a19b9b;
+    --colour-two: #6b3838;
+    --colour-three: #9c4906;
+    background-color: #000000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,42 +27,69 @@ body {
   height: 100%;
   width: 100%;
   margin: 0;
-  /* overflow-x: hidden; */
 }
+
+a {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--colour-two);
+}
+
+/* mouse over link */
+a:hover {
+  color: #000000;
+}
+
+/* visited link */
+a:visited {
+  color: var(--colour-three);
+}
+
+/* the mother div container which holds all elements */
+/* ensures that elements which spill from the container is hidden */
 .parallax_wrapper {
   height: 100vh;
+  width: 100vw;
   overflow-x: hidden;
   overflow-y: auto;
   perspective: 300px;
+  background-color: var(--colour-one);
 }
 
+/* the first cover of the page which fills the viewer screen */
 .intro_screen {
     height: 100vh;
+    /* covers the container with an image that doesn't repeat */
     background-image: url("Homepage.gif");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
   }
 
-.outro_screen {
-  height: 50vh;
-  /* background-color: black; */
-}
-
+  /* styling for all containers that will perform parallax scrolling */
 .parallax_group {
   position: relative;
   height: 100vh;
-  transform-style: preserve-3d; /* ensures that depth in 
-  this layer is preserved so it wont flatten*/
+  transform-style: preserve-3d; 
+  /* ensures that depth in this layer is preserved so it wont flatten*/
 }
+
+
+
+/* the next layers are containers for elements like the noodle, the ramen bowl and the menu,
+arranged to fit in specific spots within the screen, as well as changing z-indices to position
+which element goes on top */
+
 
 .parallax_layer {
   position: absolute;
-  inset: 0; /* gives this a top, bottom, right and left of 0 values */
+  inset: 0; 
+  /* gives this a top, bottom, right and left of 0 values */
 }
 
 .base_layer {
-  transform: translateZ(-400px) scale(2); /*will appear smaller as its -300px away */
+  transform: translateZ(-400px) scale(1.5); 
+  /*will appear smaller as its -400px away */
   /* scale calculation: 1 + ((Z transform value * -1) / perspective) */
   z-index: 300;
 }
@@ -87,18 +113,11 @@ body {
 }
 
 #group-1 > .mid_layer {
-/* background-image: url(img/Scene2.PNG);
-background-repeat: no-repeat;
-background-size: cover; */
 transform: translateZ(-700px) translateY(1150px) scale(3.4);
 }
 
 #group-2 {
-  /* background-image: url(img/Scene2.PNG);
-  background-repeat: no-repeat;
-  background-size: cover; */
   z-index: -3;
-  /* z-index: -1; */
 }
 
 #group-2 > .mid_layer {
@@ -114,6 +133,12 @@ transform: translateZ(-700px) translateY(1150px) scale(3.4);
   transform: translateX(1300px);
 }
 
+/* the div container which contains the #outro */
+.outro_screen {
+  height: 100vh;
+}
+
+/* the container that holds the table illustration */
 #outro {
   background-image: url(img/Scene2.PNG);
   background-repeat: no-repeat;
@@ -147,7 +172,7 @@ h1 {
     height: 100vh;
   }
 
-  #welcome-wrapper {
+#welcome-wrapper {
     display: flex;
     flex-flow: column;
     height: 100vh;
@@ -162,12 +187,12 @@ h1 {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 300px;
-    background: linear-gradient(to top, #6b3838, transparent);
+    height: 350px;
+    background: linear-gradient(to top, #a19b9b, transparent);
     z-index: 0;
   }
 
-  #table {
+#table {
     display: flex;
     flex-flow: column;
     height: 100%;
@@ -176,15 +201,15 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    }
+}
 
-  #outro::after {
+#outro::after {
     content: '';
     position: absolute;
     top: 10000;
     width: 100%;
-    height: 200px;
-    background: linear-gradient(to bottom, rgb(107, 56, 56), transparent);
+    height: 400px;
+    background: linear-gradient(to bottom, #a19b9b, transparent);
     z-index: 0;
   }
 
@@ -193,17 +218,42 @@ h1 {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 800px;
-    background: linear-gradient(to top, #6b3838, transparent);
+    height: 50px;
+    background: linear-gradient(to top, #a09898, transparent);
     z-index: -300;
   }
   
-  button {
+button {
     background: none;
     border: none;
     cursor: pointer;
-  }
+    transition-duration: 0.4s;
+}
 
-  #soundcontrol {
+#soundcontrol {
     margin-left: 1rem;
-  }
+}
+
+#end {
+    background-color: var(--colour-one);
+    width: 100vw;
+    height: 100vh;
+    z-index: -3;    
+    display: flex;
+}
+
+#gochi {
+  height: 100px;
+  margin-top: 8rem;
+  margin-left: 5rem;
+}
+
+#noodle {
+  cursor: pointer;
+}
+
+.text {
+  font-size: 0.3rem;
+  font-family: sans-serif;
+  margin-top: 5rem;
+}

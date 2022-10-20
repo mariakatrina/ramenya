@@ -1,6 +1,13 @@
 var img_array = ['img/soundon.PNG', 'img/mute.PNG'];
 i = 0;
 
+// var audio = new Audio("audio/nachtmahrtv__shop-bell.wav");
+
+// document.onclick = function() {
+//   audio.play();
+//   audio.currentTime=0;
+// }
+
 function toggleSound() {
     var elements = document.getElementsByTagName('audio');
     for(var e = 0; e < elements.length; elements[e].muted = !elements[e].muted, e++);

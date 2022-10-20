@@ -8,64 +8,230 @@
 
 
 <body>
-    
+
+    <!-- this audio is introduced one at the beginning to imitate the idea of opening a door, where bells
+    are present to notify the shop keeper of the entering customer -->
+    <audio 
+        id="bell" 
+        src="audio/nachtmahrtv__shop-bell.wav" 
+        preload="auto" 
+        autoplay>
+    </audio>
+
+    <!-- I divided the different stages of the website within its own div containers within one
+    div container that held all the elements to avoid confusing and disorienting overriding elements -->
+
+    <!-- these layers of div containers are present to add an almost 3D illusion for a parallax scroll experience.
+    Dividing them this way separates each element into containers which can be more easily transformed through
+    CSS by their IDs and CLASSES -->
+
     <div class="parallax_wrapper">
         <div class="parallax_group intro_screen" id="intro">
             <div id="welcome-wrapper">
+
+                <!-- holds most audio elements -->
                 <div class="audio">
-                    <button onclick="muteThisOr()"><img id="soundcontrol" src="img/soundon.PNG" width="180px"></button>
-                    <audio autoplay="true" loop="true" preload="auto" id="audio" src="audio/strannix1979__mishio-bern-kitchen-and-restaurant.wav" type="audio/wav">
+                    
+                    <!-- THE SOUND ON / MUTE BUTTON containing a hand-drawn icon,
+                    which includes a js code which activates on click. See script.js for mute function -->
+                    <button 
+                        onclick="muteThisOr()">
+
+                        <img 
+                        id="soundcontrol" 
+                        src="img/soundon.PNG" 
+                        width="200px">
+
+                    </button>
+
+                    <!-- THE GLIDING CHAIR AUDIO -->
+                    <audio 
+                        id="chair" 
+                        src="audio/ryding__chair.wav" 
+                        preload="auto">
+                    </audio>
+
+                    <!-- THE MENU FLIP PAGE AUDIO -->
+                    <audio 
+                        id="flip" 
+                        src="audio/book_page-45210.mp3" 
+                        preload="auto">
+                    </audio>
+
+                    <!-- THE SLURPING OF NOODLE AUDIO -->
+                    <audio 
+                        id="slurp" 
+                        src="audio/slurp-44892.mp3" 
+                        preload="auto">
+                    </audio>
+
+                    <!-- THE MAIN AMBIENT SOUND OF A RESTAURANT -->
+                    <audio 
+                        autoplay="true" 
+                        loop="true" 
+                        preload="auto" 
+                        id="audio" 
+                        src="audio/strannix1979__mishio-bern-kitchen-and-restaurant.wav" 
+                        type="audio/wav"
+                    >
+
                 </div>
+                
                 <h1>
-                    <!-- this links the welcome button to the next scene -->
-                    <a href="#group-1">
-                    <input type="image" src="img/sit.PNG" name="Welcome" class="btTxt submit" id="welcome" />
+                    <!-- this image links to the 'MENU' element, which automatically scrolls 
+                    down on click, imitating the motion of sitting down and looking down upon the menu -->
+
+                    <!-- this link includes a short and simple js script that can be added to html
+                    which pulls embedded audio (in this element, it pulls the audio file with the ID of 
+                    "chair") within the DOM and plays it on clicking the element.
+
+                    THIS SCRIPT IS APPLIED TO ELEMENTS 'MENU' AND 'NOODLE' -->
+                    <a 
+                        href="#group-1" 
+                        onclick="document.getElementById('chair').play();"
+                    >
+                        <!-- used a hand-drawn image as a button to remain consistent with style -->
+                        <input 
+                            type="image" 
+                            src="img/sit.PNG" 
+                            name="Welcome" 
+                            class="btTxt submit" 
+                            id="welcome" 
+                        />
+
                     </a>
+
                 </h1>
-                
-                
             </div>
-            
         </div>
 
         <div class="parallax_group" id="group-1">
             <div class="parallax_layer base_layer">
-                <a href="#group-2">
-                <input type="image" src="img/menu.PNG" name="menu" class="btTxt submit" />
+
+                <!-- allows user to click and be scrolled to view the ramen bowl (#group-2 element) -->
+                <!-- script pulls the audio with an ID "flip" to play on click -->
+                <a 
+                    href="#group-2" 
+                    onclick="document.getElementById('flip').play();"
+                >
+
+                    <!-- image is a button here using a hand-drawn menu -->
+                    <input 
+                        type="image" 
+                        src="img/menu.PNG" 
+                        name="menu" 
+                        class="btTxt submit"
+                    />
+
                 </a>
+
+                <!-- included the phrase of gratitude expressed before meals within
+                japanese culture just before the bowl to show the motion of this expression
+                before eating the meal -->
+                <!-- hand-drawn and made to a gif image which is dynamic and adds personality
+                to (an otherwise static) text -->
+                <img 
+                    src="img/itadakimasu.GIF" 
+                    id="itadakimasu"
+                />
+
             </div>
+
+            <!-- this layer was added to create an empty gap -->
             <div class="parallax_layer mid_layer">
-                
+
             </div>
         </div>
         
         <div class="parallax_group" id="group-2">
             <div class="parallax_layer mid_layer">
-                <a href="#outro">
-                    <input type="image" src="img/bowl.PNG" name="ramen" class="btTxt submit" id="ramen"/>
+                
+                <!-- clicking will scroll user down to the end of the screen -->
+                <a 
+                    href="#outro"
+                >
+                
+                <!-- includes a hand drawn ramen bowl -->
+                    <input 
+                        type="image" 
+                        src="img/bowl.PNG" 
+                        name="ramen" 
+                        class="btTxt submit" 
+                        id="ramen"
+                    />
                 </a>
-                <!-- <img src="img/bowl.PNG" id="ramen"> -->
+
             </div>
+
             <div class="parallax_layer top_layer">
 
             </div>
-
         </div>
 
         <div class="parallax_group" id="group-3">
             <div class="parallax_layer toppest_layer">
-                <!-- <a href="#outro">
-                    <input type="image" src="img/noodle.PNG" name="noodle" class="btTxt submit" id="noodle"/>
-                </a> -->
-                <img src="img/noodle.PNG" id="noodle">
+
+                <a 
+                    href="#end"
+                >
+                    
+                <!-- noodle element has a 'slurp' sound effect attached on click to
+                imitate the interaction of slurping noodles -->
+                    <img 
+                        src="img/noodle.PNG" 
+                        id="noodle" 
+                        onclick="document.getElementById('slurp').play();"
+                    >
+                
+                </a>
             </div>
 
         </div>
 
-        <div class="parallax_group outro_screen" id="outro">
-        
-        <div></div>
+<div class="parallax_group outro_screen" id="outro"> </div>
+
+
+        <div id="end">
+
+            <div 
+            id="gochi"
+            >
+
+                <!-- included the phrase of gratitude expressed after meals within
+                japanese culture right at the end of the screen to show the motion 
+                of this expression after eating a meal -->
+
+                <!-- hand-drawn and made to a gif image which is is consistent to 
+                the style of the website -->
+                <img 
+                    src="img/gochisousama.GIF"
+                >
+
+            <!-- ATTRIBUTION LIST OF AUDIO USED UNDER CREATIVE COMMONS -->
+                <p class="text">
+                    <a href="https://freesound.org/s/556710/">"Shop Bell"</a> by 
+                    <a href="https://freesound.org/people/Nachtmahrtv/">Nachtmahrtv</a> 
+                    is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC BY 1.0.</a>
+
+                    <br>
+                    
+                    <a href="https://freesound.org/s/161140/">"Mishio Bern Kitchen and Restaurant"</a> by 
+                    <a href="https://freesound.org/people/Strannix1979/">Strannix1979</a> 
+                    is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC BY 1.0.</a>
+
+                    <br>
+
+                    <a href="https://freesound.org/s/109309/">"Chair"</a> by 
+                    <a href="https://freesound.org/people/Ryding/">Ryding</a> 
+                    is licensed under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC BY 1.0.</a>
+
+                </p>
+            </div>
+
+            
         </div>
+
     </div>
+
 </body>
 </html>
