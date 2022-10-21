@@ -29,6 +29,7 @@ body {
   margin: 0;
 }
 
+/* changes the styling of links in website */
 a {
   font-weight: 700;
   text-decoration: none;
@@ -78,8 +79,12 @@ a:visited {
 
 /* the next layers are containers for elements like the noodle, the ramen bowl and the menu,
 arranged to fit in specific spots within the screen, as well as changing z-indices to position
-which element goes on top */
+which element goes on top or which does behind */
 
+/* started z index with 0 and adjusted layers will change between -5 to 1,
+you will notice this in most of the css properties */
+
+/* transforms are applied to adjust elements to the right location */
 
 .parallax_layer {
   position: absolute;
@@ -146,19 +151,28 @@ transform: translateZ(-700px) translateY(1150px) scale(3.4);
   z-index: -4;
 }
 
+.wbutton {
+  text-align: center;
+  margin-top: 32%;
+}
+
+
 
 h1 {
-    text-align: center;
-    margin: auto;
+  text-align: center;
+  margin: auto;
 }
 
 #welcome {
-    width: 50%;
-    margin: auto;
+    width: 30%;
+    margin-top: -20%;
+    margin-left: 35%;
     display: block;
     align-items: center;
 }
 
+/* home div fill with image so its easier to change elements within the div without
+having to manipulate the background img */
 .home {
   background-image: url("Homepage.gif");
   background-repeat: no-repeat;
@@ -166,12 +180,15 @@ h1 {
   background-size: cover;
 }
 
+
+/* this holds the take a seat button in the scroll page */
 #landing-wrapper {
     display: flex;
     flex-flow: column;
     height: 100vh;
   }
 
+  /* holds the welcome button in the index */
 #welcome-wrapper {
     display: flex;
     flex-flow: column;
@@ -182,12 +199,14 @@ h1 {
     background-size: cover;
   }
 
+  /* added a fade overlay on the welcome screen to imitate the visual idea of
+  'steam' coming from a hot bowl of noodles */
   #welcome-wrapper::before {
     content: '';
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 350px;
+    height: 300px;
     background: linear-gradient(to top, #a19b9b, transparent);
     z-index: 0;
   }
@@ -203,6 +222,9 @@ h1 {
     background-size: cover;
 }
 
+  /* added a fade overlay on the welcome screen to imitate the visual idea of
+  'steam' coming from a hot bowl of noodles */
+  /* this applies at the bottom of the outro div */
 #outro::after {
     content: '';
     position: absolute;
@@ -213,6 +235,9 @@ h1 {
     z-index: 0;
   }
 
+    /* added a fade overlay on the welcome screen to imitate the visual idea of
+  'steam' coming from a hot bowl of noodles */
+  /* this goes at the top of the outro div */
   #outro::before {
     content: '';
     position: absolute;
@@ -223,17 +248,21 @@ h1 {
     z-index: -300;
   }
   
+  /* removed all decoration from button */
 button {
     background: none;
     border: none;
     cursor: pointer;
     transition-duration: 0.4s;
+    inset: 0;
 }
 
+/* styling for mute button for more neg space */
 #soundcontrol {
     margin-left: 1rem;
 }
 
+/* the final div container styling */
 #end {
     background-color: var(--colour-one);
     width: 100vw;
@@ -242,16 +271,20 @@ button {
     display: flex;
 }
 
+/* styling for the end image so its in the middle but just next to the noodle image */
 #gochi {
   height: 100px;
   margin-top: 8rem;
   margin-left: 5rem;
 }
 
+/* gives the noodle image a pointer to indicate that its clickable with interaction 
+(plays the slurp sound) */
 #noodle {
   cursor: pointer;
 }
 
+/* styling of attribution text */
 .text {
   font-size: 0.3rem;
   font-family: sans-serif;

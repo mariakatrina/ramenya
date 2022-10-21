@@ -31,8 +31,11 @@
     <!-- added to contain everything within a box, also made to conatin the background -->
     <div class="home">
         <div id="landing-wrapper">
+
             
-            <h1>
+            
+            <h1 class="wbutton">
+                
                 <!-- this links the welcome button to the next scene -->
                 <a href="scroll.html" class="hometo">
                         <input 
@@ -44,6 +47,19 @@
                         />
                 </a>
             </h1>
+
+            <!-- THE SOUND ON / MUTE BUTTON containing a hand-drawn icon,
+                    which includes a js code which activates on click. See script.js for mute function -->
+                    <button 
+                        onclick="muteThisOr()" >
+
+                        <img 
+                        id="soundcontrol" 
+                        src="img/soundon.PNG" 
+                        width="100px">
+
+                    </button>
+
         </div>
     </div> 
     
